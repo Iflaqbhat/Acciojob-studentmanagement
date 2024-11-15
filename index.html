@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Management System</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      width: 100%;
+    }
+
+    .container {
+      background-color: #e0e0e0;
+      border: 1px solid black;
+      width: auto; /* Full width */
+      max-width: 800px; /* Maximum width for the container */
+      margin: 4% auto; /* Center the container */
+      box-sizing: border-box; /* Include padding and border in the total width */
+      overflow-x: auto; /* Prevents content from overflowing horizontally */
+    }
+
+    .student-portal {
+      text-align: left;
+      font-size: 24px;
+      color: white;
+      margin-top: 0px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 4px rgba(200, 15, 15, 0.5);
+      background-color: black;
+      padding: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .form-container {
+      margin: 4px;
+    }
+
+    .form-control {
+      width: 80%;
+      padding: 10px;
+    }
+
+    .search-btn {
+      padding: 10px;
+      width: 16%;
+      background-color: #000;
+      color: #f4f4f4;
+    }
+
+    .sort-buttons {
+      display: flex;
+
+      margin: 20px 4px;
+      gap: 10px;
+      flex-wrap: nowrap; /* Prevents buttons from wrapping onto a new line */
+    }
+
+    .sort-buttons button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 3px;
+      white-space: nowrap; /* Prevents the text from wrapping */
+      min-width: 120px; /* Ensure buttons are large enough */
+      /* Center the text */
+    }
+
+    .sort-buttons button:hover {
+      background-color: #333; /* Slightly lighter on hover */
+    }
+
+    .student-table {
+      width: 100%; /* Table will take up 100% of the container's width */
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #f4f4f4;
+      border-radius: 40px;
+      box-sizing: border-box;
+      border: 1px solid black; /* Make sure padding/border is included in the width calculation */
+    }
+
+    .student-table th,
+    .student-table td {
+      padding: 8px; /* Slightly smaller padding */
+      border: 1px solid #ddd;
+      text-align: center;
+      border: 1px solid black;
+    }
+
+    .student-table th {
+      background-color: white;
+      color: black;
+    }
+
+    .student-table tr:nth-child(even) {
+      background-color: #e0e0e0; /* Light grey for even rows */
+    }
+
+    @media (max-width: 600px) {
+      .student-table {
+        width: 100%;
+        display: block;
+        overflow-x: auto; /* Allow horizontal scroll on small screens */
+      }
+
+      .student-table th,
+      .student-table td {
+        white-space: nowrap; /* Prevent text from wrapping in cells */
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <p class="student-portal">Student Portal</p>
+      <div class="form-container">
+        <input
+          type="text"
+          id="search-input"
+          class="form-control"
+          placeholder="Search..."
+        />
+        <button type="submit" id="search-btn" class="search-btn">Search</button>
+      </div>
+      <div class="sort-buttons">
+        <button id="sortAscending">Sort A→Z</button>
+        <button id="sortDescending">Sort Z→A</button>
+        <button id="sortMarks">Sort By Marks</button>
+
+        <button id="pass">Sort By Passing</button>
+        <button id="class">Sort By Class</button>
+        <button id="gender">Sort By Gender</button>
+      </div>
+      <table class="student-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+
+            <th>Gender</th>
+            <th>Class</th>
+            <th>Marks</th>
+            <th>Passing</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody id="student-table-body">
+          <!-- Rows will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
